@@ -1,0 +1,2865 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg: #09100d;
+    --panel: #101813;
+    --panel2: #121c16;
+
+    --cream: #f2d397;
+    --gold: #d6a84f;
+    --green: #003c2c;
+    --red: #9d1717;
+
+    --white: #f5f3ed;
+    --grey: #9ba19d;
+
+    --line: rgba(242, 211, 151, .14);
+
+    --max: 1500px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(0, 60, 44, .18),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--white);
+
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    width: min(calc(100% - 72px), var(--max));
+    height: 94px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    min-width: 240px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.brand img {
+    width: 54px;
+    height: 54px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+.brand-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name strong {
+    font-size: 18px;
+}
+
+.brand-name span {
+    margin-top: 2px;
+
+    color: var(--cream);
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    letter-spacing: .35em;
+}
+
+.main-nav {
+    margin: auto;
+
+    display: flex;
+    gap: 34px;
+}
+
+.main-nav a {
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    letter-spacing: .08em;
+
+    transition: .2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--cream);
+}
+
+.discord-button {
+    min-width: 125px;
+
+    padding: 13px 20px;
+
+    border: 1px solid rgba(242, 211, 151, .30);
+    border-radius: 999px;
+
+    color: var(--cream);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    text-align: center;
+
+    transition: .2s;
+}
+
+.discord-button:hover {
+    background: var(--cream);
+    color: #111;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    width: min(calc(100% - 72px), var(--max));
+    min-height: 630px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+}
+
+.hero-copy {
+    padding-right: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eyebrow,
+.section-kicker {
+    color: var(--gold);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: .25em;
+}
+
+.hero h1 {
+    margin-top: 25px;
+
+    font-size: clamp(65px, 5.5vw, 100px);
+
+    font-weight: 900;
+
+    line-height: .82;
+
+    letter-spacing: -.065em;
+}
+
+.hero h1 span {
+    color: var(--cream);
+}
+
+.hero-copy p {
+    max-width: 600px;
+
+    margin-top: 35px;
+
+    color: #a5aaa7;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+.hero-actions {
+    margin-top: 38px;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.button {
+    min-height: 50px;
+
+    padding: 0 24px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 3px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    transition: .2s;
+}
+
+.button-primary {
+    background: var(--cream);
+
+    color: #111;
+}
+
+.button-secondary {
+    border: 1px solid rgba(242, 211, 151, .30);
+
+    color: var(--cream);
+}
+
+.button-secondary:hover {
+    border-color: var(--cream);
+}
+
+.hero-visual {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 60, 44, .55),
+            transparent 65%
+        );
+}
+
+.hero-logo {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(560px, 76%);
+
+    filter:
+        drop-shadow(
+            0 40px 50px rgba(0, 0, 0, .55)
+        );
+}
+
+.hero-word {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: rgba(242, 211, 151, .025);
+
+    font-size: 180px;
+    font-weight: 900;
+
+    letter-spacing: -.08em;
+}
+
+.hero-season {
+    position: absolute;
+
+    right: 8px;
+    bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: right;
+
+    font-family: "DM Mono", monospace;
+}
+
+.hero-season span {
+    color: var(--grey);
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+}
+
+.hero-season strong {
+    margin-top: 5px;
+
+    color: var(--cream);
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   MATCH CENTER
+========================================================= */
+
+.match-center {
+    width: min(calc(100% - 72px), var(--max));
+
+    margin: auto;
+
+    padding: 32px 0 70px;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   PRÓXIMO JOGO
+========================================================= */
+
+.featured-match {
+    min-height: 105px;
+
+    display: grid;
+
+    grid-template-columns:
+        220px
+        1fr
+        270px;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 60, 44, .30),
+            rgba(0, 60, 44, .08)
+        );
+
+    border: 1px solid var(--line);
+}
+
+.featured-label {
+    height: 100%;
+
+    padding: 0 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-right: 1px solid var(--line);
+}
+
+.featured-label span {
+    color: var(--gold);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .18em;
+}
+
+.featured-label strong {
+    margin-top: 8px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.featured-teams {
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+}
+
+.featured-team {
+    min-width: 170px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.featured-team img,
+.featured-opponent-logo {
+    width: 52px;
+    height: 52px;
+}
+
+.featured-team img {
+    object-fit: contain;
+}
+
+.featured-team strong {
+    font-size: 13px;
+}
+
+.featured-vs {
+    color: #525a55;
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.featured-meta {
+    height: 100%;
+
+    padding: 0 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 10px;
+
+    border-left: 1px solid var(--line);
+
+    font-family: "DM Mono", monospace;
+}
+
+.featured-meta span {
+    color: var(--grey);
+
+    font-size: 9px;
+
+    letter-spacing: .1em;
+}
+
+.featured-meta a {
+    color: var(--cream);
+
+    font-size: 9px;
+
+    letter-spacing: .06em;
+}
+
+
+/* =========================================================
+   RESULTADOS — CENTRO
+========================================================= */
+
+.results-center {
+    margin-top: 46px;
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+}
+
+.results-section {
+    min-width: 0;
+}
+
+.summary-heading {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.summary-heading h2 {
+    margin-top: 7px;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -.045em;
+}
+
+.mini-controls {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.mini-controls button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--cream);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.mini-controls button:hover {
+    background: rgba(242, 211, 151, .06);
+    border-color: rgba(242, 211, 151, .35);
+}
+
+.results-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.compact-results.results-track {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    border-top: 0;
+    padding-bottom: 2px;
+}
+
+.compact-results.results-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   CARDS DE RESULTADO
+========================================================= */
+
+.results-track .match-card {
+    flex: 0 0 calc((100% - 24px) / 3);
+    min-width: 330px;
+    min-height: 235px;
+    padding: 22px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 24, 19, .98),
+            rgba(9, 16, 13, .98)
+        );
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: transform .2s, border-color .2s, background .2s;
+}
+
+.results-track .match-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(242, 211, 151, .34);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 29, 22, 1),
+            rgba(9, 16, 13, 1)
+        );
+}
+
+.results-track .match-meta {
+    min-height: 22px;
+    padding-right: 90px;
+    color: var(--grey);
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   EQUIPAS + MARCADOR
+========================================================= */
+
+.results-track .match {
+    flex: 1;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 13px;
+}
+
+.results-track .club {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.results-track .club:first-child {
+    justify-content: center;
+}
+
+.results-track .club img,
+.results-track .club .placeholder-logo {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+}
+
+.results-track .club img {
+    object-fit: contain;
+}
+
+.results-track .club .placeholder-logo {
+    font-size: 18px;
+}
+
+.results-track .club span {
+    width: 100%;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.results-track .score {
+    min-width: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.results-track .score strong {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.results-track .score span {
+    color: #59615c;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   VITÓRIA / DERROTA / EMPATE
+========================================================= */
+
+.results-track .match-status {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    padding: 5px 7px;
+    border: 1px solid currentColor;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: .08em;
+    text-align: right;
+}
+
+.results-track .match-status.win {
+    color: #8fc667;
+}
+
+.results-track .match-status.loss {
+    color: #d75d58;
+}
+
+.results-track .match-status.draw {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   RESPONSIVE — RESULTADOS
+========================================================= */
+
+@media (max-width: 1100px) {
+    .results-track .match-card {
+        flex-basis: calc((100% - 12px) / 2);
+    }
+}
+
+@media (max-width: 760px) {
+    .results-center {
+        margin-top: 38px;
+        gap: 45px;
+    }
+
+    .summary-heading {
+        align-items: center;
+    }
+
+    .summary-heading h2 {
+        font-size: 24px;
+    }
+
+    .results-track .match-card {
+        flex-basis: 88%;
+        min-width: 88%;
+        min-height: 215px;
+        padding: 18px;
+    }
+
+    .results-track .match-meta {
+        padding-right: 78px;
+        font-size: 8px;
+    }
+
+    .results-track .match-status {
+        top: 18px;
+        right: 18px;
+    }
+
+    .results-track .club img,
+    .results-track .club .placeholder-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+    }
+
+    .results-track .club span {
+        display: block;
+        font-size: 9px;
+    }
+
+    .results-track .score {
+        min-width: 70px;
+    }
+
+    .results-track .score strong {
+        font-size: 25px;
+    }
+}
+
+/* =========================================================
+   PLACEHOLDER LOGO
+========================================================= */
+
+.placeholder-logo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(242, 211, 151, .16);
+
+    border-radius: 50%;
+
+    color: var(--grey);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   GENERIC SECTIONS
+========================================================= */
+
+.section {
+    width: min(calc(100% - 72px), var(--max));
+
+    margin: auto;
+
+    padding: 75px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.section-heading {
+    margin-bottom: 30px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.section-heading h2 {
+    margin-top: 8px;
+
+    font-size: 39px;
+
+    font-weight: 800;
+
+    letter-spacing: -.045em;
+}
+
+.section-heading.compact {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+.team-feature {
+    width: min(calc(100% - 72px), var(--max));
+
+    min-height: 510px;
+
+    margin: auto;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid var(--line);
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(0, 60, 44, .38),
+            transparent 62%
+        );
+}
+
+.team-copy {
+    position: relative;
+
+    z-index: 2;
+
+    padding-left: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+.team-copy h2 {
+    margin-top: 15px;
+
+    font-size: 88px;
+
+    font-weight: 900;
+
+    line-height: .82;
+
+    letter-spacing: -.07em;
+}
+
+.team-copy p {
+    max-width: 420px;
+
+    margin: 28px 0;
+
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+.team-crest {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.team-crest img {
+    width: 410px;
+
+    filter:
+        drop-shadow(
+            0 45px 55px rgba(0,0,0,.55)
+        );
+}
+
+.team-crest span {
+    position: absolute;
+
+    right: 24px;
+    bottom: 28px;
+
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .25em;
+
+    writing-mode: vertical-rl;
+}
+
+.team-background-text {
+    position: absolute;
+
+    right: -40px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: rgba(255,255,255,.022);
+
+    font-size: 220px;
+
+    font-weight: 900;
+
+    letter-spacing: -.08em;
+}
+
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.carousel-controls {
+    display: flex;
+
+    gap: 8px;
+}
+
+.carousel-button {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: 1px solid var(--line);
+
+    color: var(--cream);
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   PLAYERS
+========================================================= */
+
+.players-viewport {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.players-track {
+    display: flex;
+
+    gap: 12px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    cursor: grab;
+}
+
+.players-track::-webkit-scrollbar {
+    display: none;
+}
+
+.player-card {
+    min-width: calc((100% - 48px) / 5);
+
+    height: 350px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            160deg,
+            #1a211d,
+            #0e1310
+        );
+
+    border: 1px solid var(--line);
+
+    transition: .25s;
+}
+
+.player-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(242,211,151,.38);
+}
+
+.player-number {
+    position: absolute;
+
+    right: 18px;
+    top: 15px;
+
+    color:
+        rgba(242,211,151,.11);
+
+    font-size: 68px;
+
+    font-weight: 900;
+}
+
+.player-placeholder {
+    position: absolute;
+
+    left: 50%;
+    top: 43%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 110px;
+    height: 110px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(242,211,151,.12);
+
+    border-radius: 50%;
+
+    color:
+        rgba(242,211,151,.25);
+
+    font-size: 40px;
+
+    font-weight: 800;
+}
+
+.player-info {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 23px;
+}
+
+.player-info strong {
+    display: block;
+
+    font-size: 21px;
+}
+
+.player-info span {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 6px 9px;
+
+    background: var(--red);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        .85fr;
+
+    gap: 60px;
+}
+
+
+/* =========================================================
+   STANDINGS
+========================================================= */
+
+.standings-table {
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.standings-row {
+    min-height: 62px;
+
+    display: grid;
+
+    grid-template-columns:
+        45px
+        1fr
+        45px
+        45px
+        45px
+        45px
+        60px;
+
+    align-items: center;
+
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+}
+
+.standings-row span {
+    text-align: center;
+}
+
+.standings-row span:nth-child(2) {
+    text-align: left;
+}
+
+.standings-header {
+    min-height: 45px;
+
+    color: var(--grey);
+
+    font-size: 9px;
+}
+
+.standings-row.suave {
+    background:
+        rgba(242,211,151,.06);
+}
+
+.standings-row.suave span:nth-child(2) {
+    color: var(--cream);
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.stat {
+    min-height: 135px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.stat strong {
+    font-size: 45px;
+
+    font-weight: 900;
+}
+
+.stat span {
+    margin-top: 8px;
+
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .1em;
+}
+
+.stat.accent strong {
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closing-section {
+    width: min(calc(100% - 72px), var(--max));
+
+    min-height: 370px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at 80%,
+            rgba(0,60,44,.35),
+            transparent 30%
+        );
+}
+
+.closing-section h2 {
+    margin-top: 15px;
+
+    font-size: 62px;
+
+    font-weight: 900;
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+}
+
+.closing-section h2 span {
+    color: var(--cream);
+}
+
+.closing-section img {
+    width: 290px;
+
+    margin-right: 80px;
+
+    opacity: .7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    width: min(calc(100% - 72px), var(--max));
+
+    min-height: 150px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.footer-brand img {
+    width: 52px;
+    height: 52px;
+
+    object-fit: contain;
+}
+
+.footer-brand div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.footer-brand strong {
+    font-size: 12px;
+}
+
+.footer-brand span,
+.footer-line {
+    margin-top: 4px;
+
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+}
+
+.footer-line {
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .main-nav {
+        gap: 16px;
+    }
+
+    .featured-match {
+        grid-template-columns:
+            180px
+            1fr
+            200px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .player-card {
+        min-width:
+            calc((100% - 24px) / 3);
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .site-header,
+    .hero,
+    .match-center,
+    .section,
+    .team-feature,
+    .closing-section,
+    footer {
+        width: calc(100% - 30px);
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .brand {
+        min-width: 0;
+    }
+
+    .discord-button {
+        margin-left: auto;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .hero-visual {
+        min-height: 420px;
+
+        margin-top: 40px;
+    }
+
+    .featured-match {
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+    }
+
+    .featured-label,
+    .featured-meta {
+        padding: 15px 0;
+
+        border: 0;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .featured-teams {
+        padding: 20px 0;
+
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+    }
+
+    .team-feature {
+        grid-template-columns: 1fr;
+
+        padding: 60px 0;
+    }
+
+    .team-copy {
+        padding: 0 25px;
+    }
+
+    .team-crest {
+        margin-top: 50px;
+    }
+
+    .team-crest img {
+        width: 75%;
+    }
+
+    .player-card {
+        min-width: 75%;
+    }
+
+    .standings-row {
+        grid-template-columns:
+            35px
+            1fr
+            35px
+            35px
+            35px
+            35px
+            45px;
+
+        font-size: 9px;
+    }
+
+}
+
+/* =========================================================
+   FIX — CARDS DO PLANTEL
+========================================================= */
+
+.players-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    align-items: stretch;
+}
+
+.players-track::-webkit-scrollbar {
+    display: none;
+}
+
+.player-card {
+    flex: 0 0 calc((100% - 48px) / 5);
+    min-width: calc((100% - 48px) / 5);
+    height: 350px;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background: #101813;
+    border: 1px solid rgba(242, 211, 151, .14);
+}
+
+.player-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+}
+
+.player-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba(9, 16, 13, .25) 58%,
+            rgba(9, 16, 13, .96) 100%
+        );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+.player-number {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+
+    z-index: 2;
+
+    color: rgba(242, 211, 151, .22);
+
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.player-info {
+    position: relative;
+    z-index: 2;
+
+    padding: 20px;
+}
+
+.player-info strong {
+    display: block;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.player-info span {
+    display: inline-block;
+
+    margin-top: 8px;
+    padding: 5px 8px;
+
+    background: #9d1717;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+}
+
+@media (max-width: 1000px) {
+
+    .player-card {
+        flex-basis: calc((100% - 24px) / 3);
+        min-width: calc((100% - 24px) / 3);
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .player-card {
+        flex-basis: 75%;
+        min-width: 75%;
+    }
+
+}
+
+
+/* =========================================================
+   RESULTADOS — INTERAÇÃO
+========================================================= */
+
+.match-card[data-series-id] {
+    cursor: pointer;
+}
+
+.match-card[data-series-id]:hover {
+    border-color: rgba(213, 184, 105, 0.55);
+}
+
+
+/* =========================================================
+   RESULTADO — DETALHES
+   NÃO ALTERA LARGURA NEM ALTURA DO CARD
+========================================================= */
+
+.match-card.details-open {
+    box-sizing: border-box;
+    overflow: hidden;
+
+    padding: 24px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(213, 184, 105, 0.035),
+            transparent 55%
+        ),
+        #08130f;
+
+    border-color: rgba(213, 184, 105, 0.42);
+}
+
+
+/* META */
+
+.match-card.details-open .match-meta {
+    margin-bottom: 16px;
+
+    color: #d5b869;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+/* RESULTADO PRINCIPAL */
+
+.result-detail-score {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+
+    border-bottom:
+        1px solid rgba(244, 239, 217, 0.12);
+}
+
+.result-detail-score strong {
+    color: #f4efd9;
+
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.result-detail-score span {
+    color: #f4efd9;
+
+    font-size: 17px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+/* GOLOS / ASSISTÊNCIAS / MVP */
+
+.result-detail-info {
+    display: grid;
+    gap: 9px;
+}
+
+.result-detail-info > div {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 10px;
+}
+
+.result-detail-info span {
+    color: rgba(244, 239, 217, 0.48);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.result-detail-info strong {
+    min-width: 0;
+
+    color: #f4efd9;
+
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.result-detail-info > div:last-child strong {
+    color: #d5b869;
+}
+
+
+/* =========================================================
+   BO5 — JOGOS DA SÉRIE
+========================================================= */
+
+.result-detail-games {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+
+    margin-bottom: 14px;
+}
+
+.result-detail-game {
+    min-width: 0;
+    padding: 8px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid rgba(244, 239, 217, 0.1);
+}
+
+.result-detail-game span {
+    color: rgba(244, 239, 217, 0.5);
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.result-detail-game strong {
+    color: #f4efd9;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   VOLTAR
+========================================================= */
+
+.result-detail-back {
+    margin-top: 16px;
+
+    color: #d5b869;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HOVER ABERTO
+========================================================= */
+
+.match-card.details-open:hover {
+    border-color: rgba(213, 184, 105, 0.65);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .match-card.details-open {
+        padding: 20px;
+    }
+
+    .result-detail-score strong {
+        font-size: 30px;
+    }
+
+    .result-detail-score span {
+        font-size: 15px;
+    }
+
+    .result-detail-info > div {
+        grid-template-columns: 82px minmax(0, 1fr);
+    }
+
+    .result-detail-games {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   DETALHES — GARANTIR QUE TUDO CABE NO CARD
+========================================================= */
+
+.match-card.details-open {
+    padding-top: 20px;
+    padding-bottom: 18px;
+}
+
+.match-card.details-open .match-meta {
+    margin-bottom: 12px;
+}
+
+.match-card.details-open .result-detail-score {
+    padding-bottom: 11px;
+    margin-bottom: 11px;
+}
+
+.match-card.details-open .result-detail-games {
+    margin-bottom: 10px;
+}
+
+.match-card.details-open .result-detail-game {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.match-card.details-open .result-detail-info {
+    gap: 7px;
+}
+
+.match-card.details-open .result-detail-info strong {
+    line-height: 1.15;
+}
+
+.match-card.details-open .result-detail-back {
+    margin-top: 10px;
+}
+
+/* =========================================================
+   DASHBOARD — DIVISÃO EA
+========================================================= */
+
+.dashboard-section .dashboard-grid {
+    grid-template-columns: 1.08fr .92fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.division-panel,
+.statistics-panel {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   CARTÃO DA DIVISÃO
+========================================================= */
+
+.division-card {
+    min-height: 316px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 16% 28%,
+            rgba(214, 168, 79, .10),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(0, 60, 44, .32),
+            rgba(16, 24, 19, .98) 52%,
+            rgba(9, 16, 13, 1)
+        );
+
+    border: 1px solid var(--line);
+}
+
+.division-card::before {
+    content: "05";
+
+    position: absolute;
+    right: -18px;
+    top: -42px;
+
+    color: rgba(242, 211, 151, .025);
+
+    font-size: 220px;
+    font-weight: 900;
+    line-height: 1;
+
+    letter-spacing: -.08em;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PARTE PRINCIPAL
+========================================================= */
+
+.division-card-main {
+    flex: 1;
+
+    min-height: 215px;
+
+    padding: 28px 32px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   EMBLEMA / DIVISÃO
+========================================================= */
+
+.division-emblem {
+    width: 132px;
+    height: 150px;
+
+    flex: 0 0 132px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(242, 211, 151, .13),
+            rgba(242, 211, 151, .025)
+        );
+
+    border:
+        1px solid
+        rgba(242, 211, 151, .28);
+
+    clip-path:
+        polygon(
+            50% 0%,
+            91% 16%,
+            91% 70%,
+            50% 100%,
+            9% 70%,
+            9% 16%
+        );
+}
+
+.division-emblem::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    clip-path:
+        polygon(
+            50% 0%,
+            91% 16%,
+            91% 70%,
+            50% 100%,
+            9% 70%,
+            9% 16%
+        );
+
+    border:
+        1px solid
+        rgba(242, 211, 151, .12);
+}
+
+.division-emblem-label {
+    position: relative;
+    z-index: 1;
+
+    color: var(--gold);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+    font-weight: 500;
+
+    letter-spacing: .22em;
+}
+
+.division-emblem-number {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 3px;
+
+    color: var(--cream);
+
+    font-size: 66px;
+    font-weight: 900;
+
+    line-height: .95;
+
+    letter-spacing: -.07em;
+}
+
+
+/* =========================================================
+   INFORMAÇÃO DA EQUIPA
+========================================================= */
+
+.division-club {
+    min-width: 0;
+}
+
+.division-status {
+    color: var(--gold);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: .20em;
+}
+
+.division-club h3 {
+    margin-top: 10px;
+
+    color: var(--white);
+
+    font-size: clamp(28px, 2.2vw, 40px);
+    font-weight: 900;
+
+    line-height: .95;
+
+    letter-spacing: -.05em;
+}
+
+.division-rank {
+    margin-top: 20px;
+
+    display: flex;
+    align-items: baseline;
+
+    gap: 9px;
+}
+
+.division-rank span {
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .14em;
+}
+
+.division-rank strong {
+    color: var(--cream);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: .08em;
+}
+
+
+/* =========================================================
+   REGISTO DA ÉPOCA
+========================================================= */
+
+.division-record {
+    min-height: 100px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr)
+        1.25fr;
+
+    position: relative;
+    z-index: 1;
+
+    border-top: 1px solid var(--line);
+}
+
+.division-record-item {
+    min-width: 0;
+
+    padding: 17px 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-right: 1px solid var(--line);
+}
+
+.division-record-item:last-child {
+    border-right: 0;
+}
+
+.division-record-item span {
+    color: var(--grey);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .10em;
+}
+
+.division-record-item strong {
+    margin-top: 7px;
+
+    color: var(--white);
+
+    font-size: 23px;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+.division-points {
+    background:
+        rgba(242, 211, 151, .055);
+}
+
+.division-points strong {
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   OS NÚMEROS
+========================================================= */
+
+.statistics-panel .stats-grid {
+    min-height: 316px;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+}
+
+.statistics-panel .stat {
+    min-height: 105px;
+}
+
+.statistics-panel .stat strong {
+    font-size: 36px;
+}
+
+.statistics-panel .stat span {
+    padding: 0 8px;
+
+    text-align: center;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard-section .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .division-card-main {
+        padding: 25px 20px;
+
+        gap: 18px;
+    }
+
+    .division-emblem {
+        width: 105px;
+        height: 122px;
+
+        flex-basis: 105px;
+    }
+
+    .division-emblem-number {
+        font-size: 52px;
+    }
+
+    .division-club h3 {
+        font-size: 27px;
+    }
+
+    .division-record {
+        grid-template-columns:
+            repeat(5, 1fr);
+    }
+
+    .division-record-item {
+        padding:
+            15px 4px;
+    }
+
+    .division-record-item span {
+        font-size: 6px;
+
+        letter-spacing: .05em;
+    }
+
+    .division-record-item strong {
+        font-size: 18px;
+    }
+
+}
+
+/* =========================================================
+   HEADER — TEAM SUAVE SYSTEM
+========================================================= */
+
+.site-header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 76px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    padding: 0 28px;
+
+    background: #0a0a0a;
+
+    border-bottom:
+        1px solid rgba(240, 238, 232, 0.18);
+
+    z-index: 1000;
+}
+
+
+/* SUAVE */
+
+.site-header .brand {
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+    height: auto;
+
+    padding: 0;
+
+    background: transparent;
+}
+
+.site-header .brand img {
+    display: block;
+
+    width: 145px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* NAVEGAÇÃO */
+
+.site-header .main-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+.site-header .main-nav a {
+    padding: 0;
+
+    border: 0;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #f0eee8;
+
+    opacity: 1;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+.site-header .main-nav a:hover {
+    opacity: 0.5;
+}
+
+.site-header .main-nav a.active {
+    color: #f0eee8;
+}
+
+
+/* AV */
+
+.site-header .header-mark {
+    justify-self: end;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    width: auto;
+    height: auto;
+}
+
+.site-header .header-mark img {
+    display: block;
+
+    width: 38px;
+    height: 38px;
+
+    object-fit: contain;
+}
+
+
+/* COMPENSAR HEADER FIXO */
+
+body {
+    padding-top: 76px;
+}
+
+/* =========================================================
+   FIX — LOGO TEAM SUAVE NO HEADER
+========================================================= */
+
+.site-header .brand {
+    overflow: visible;
+}
+
+.site-header .brand img {
+    display: block;
+
+    width: 145px;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    border-radius: 0;
+
+    clip-path: none;
+
+    transform: none;
+
+    filter: none;
+}
+
+/* =========================================================
+   FOOTER — TEAM SUAVE SYSTEM
+========================================================= */
+
+.team-suave-footer {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 28px;
+
+    background: #0a0a0a;
+    color: #f0eee8;
+
+    overflow: hidden;
+}
+
+
+/* LOGO SUAVE GIGANTE */
+
+.team-suave-footer-word {
+    width: 100%;
+}
+
+.team-suave-footer-word img {
+    display: block;
+
+    width: 100%;
+    max-height: 42vh;
+
+    object-fit: contain;
+    object-position: left bottom;
+
+    border-radius: 0;
+    clip-path: none;
+
+    transform: none;
+    filter: none;
+}
+
+
+/* LINHA INFERIOR */
+
+.team-suave-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 70px;
+    padding-top: 18px;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   FOOTER — TEAM SUAVE COMPACT
+========================================================= */
+
+footer.team-suave-footer {
+    width: 100%;
+    min-height: 0;
+
+    display: block;
+
+    padding: 0 28px;
+
+    background: #0a0a0a;
+    color: #f0eee8;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+}
+
+
+/* LOGO */
+
+.team-suave-footer-word {
+    width: 100%;
+
+    padding:
+        55px 0 50px;
+}
+
+.team-suave-footer-word img {
+    display: block;
+
+    width: 145px;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    border-radius: 0;
+    clip-path: none;
+    transform: none;
+    filter: none;
+}
+
+
+/* LINHA INFERIOR */
+
+footer.team-suave-footer .team-suave-footer-bottom {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    align-items: center;
+
+    margin: 0;
+    padding:
+        18px 0 22px;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.team-suave-footer-bottom span:nth-child(1) {
+    justify-self: start;
+}
+
+.team-suave-footer-bottom span:nth-child(2) {
+    justify-self: center;
+}
+
+.team-suave-footer-bottom span:nth-child(3) {
+    justify-self: end;
+}
+
+/* =========================================================
+   FOOTER — TEAM SUAVE SYSTEM
+   SUAVEMENTE FC
+========================================================= */
+
+footer.team-suave-footer {
+    width: 100%;
+    min-height: 0;
+
+    display: block;
+
+    padding: 0 28px;
+
+    background: #0a0a0a;
+    color: #f0eee8;
+
+    overflow: visible;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.team-suave-footer .footer-main {
+    min-height: 190px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        2fr
+        auto;
+
+    align-items: start;
+
+    gap: 80px;
+
+    padding:
+        42px 0 38px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.team-suave-footer .footer-logo {
+    display: block;
+
+    width: fit-content;
+}
+
+
+.team-suave-footer .footer-logo img {
+    display: block;
+
+    width: 145px;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    border-radius: 0;
+    clip-path: none;
+
+    transform: none;
+    filter: none;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO — 3 COLUNAS / 2 LINKS
+========================================================= */
+
+.team-suave-footer .footer-nav {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(120px, 1fr));
+
+    gap: 70px;
+
+    width: 100%;
+    max-width: 760px;
+}
+
+
+.team-suave-footer .footer-nav-column {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+}
+
+
+.team-suave-footer .footer-nav a {
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    color: #f0eee8;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+
+.team-suave-footer .footer-nav a:hover {
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   REDES SOCIAIS
+========================================================= */
+
+.team-suave-footer .footer-socials {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 18px;
+}
+
+
+.team-suave-footer .footer-socials a {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #f0eee8;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.team-suave-footer .footer-socials a:hover {
+    opacity: 0.55;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.team-suave-footer .footer-socials svg {
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.team-suave-footer .footer-socials svg .social-fill {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* =========================================================
+   BARRA INFERIOR
+========================================================= */
+
+footer.team-suave-footer .footer-bottom {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0;
+
+    padding:
+        17px 0 19px;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #f0eee8;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    footer.team-suave-footer {
+        padding:
+            0 18px;
+    }
+
+
+    .team-suave-footer .footer-main {
+        min-height: 0;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 38px;
+
+        padding:
+            40px 0;
+    }
+
+
+    .team-suave-footer .footer-logo img {
+        width: 125px;
+    }
+
+
+    .team-suave-footer .footer-nav {
+        max-width: none;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 30px;
+    }
+
+
+    .team-suave-footer .footer-socials {
+        justify-content: flex-start;
+    }
+
+
+    footer.team-suave-footer .footer-bottom {
+        gap: 20px;
+
+        font-size: 9px;
+    }
+
+}
