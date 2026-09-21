@@ -2149,3 +2149,23 @@ body.loaded .hero-word {
         225px
     );
 }
+
+/* =========================================================
+   FIX — HERO ESPORTS / TALENTOS
+========================================================= */
+
+.esports-title {
+    font-size: clamp(
+        100px,
+        17vw,
+        310px
+    );
+}
+
+.talents-title {
+    font-size: clamp(
+        90px,
+        15vw,
+        275px
+    );
+}
