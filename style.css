@@ -1,0 +1,1307 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0a0a0a;
+    color: #f0eee8;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --black: #0a0a0a;
+    --white: #f0eee8;
+    --red: #e1261c;
+    --line: rgba(240, 238, 232, 0.18);
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor {
+    position: fixed;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: var(--white);
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transform:
+        translate(-50%, -50%);
+
+    mix-blend-mode: difference;
+
+    transition:
+        width 0.15s ease,
+        height 0.15s ease;
+}
+
+.cursor.active {
+    width: 55px;
+    height: 55px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 76px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items: center;
+
+    padding:
+        0 28px;
+
+    border-bottom:
+        1px solid var(--line);
+
+    z-index: 1000;
+
+    mix-blend-mode: difference;
+
+    color: var(--white);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.brand img {
+    display: block;
+    width: 145px;
+    height: auto;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+.nav a:hover {
+    opacity: 0.5;
+}
+
+.header-mark {
+    justify-self: end;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding:
+        100px 28px 28px;
+
+    overflow: hidden;
+}
+
+.hero-grid {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            to right,
+            transparent calc(25% - 1px),
+            rgba(255,255,255,0.08) 25%,
+            transparent calc(25% + 1px)
+        ),
+        linear-gradient(
+            to right,
+            transparent calc(50% - 1px),
+            rgba(255,255,255,0.08) 50%,
+            transparent calc(50% + 1px)
+        ),
+        linear-gradient(
+            to right,
+            transparent calc(75% - 1px),
+            rgba(255,255,255,0.08) 75%,
+            transparent calc(75% + 1px)
+        );
+}
+
+.hero-top {
+    position: relative;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+.hero-word {
+    position: relative;
+
+    font-size: clamp(
+        130px,
+        23vw,
+        430px
+    );
+
+    font-weight: 900;
+
+    line-height: 0.72;
+
+    letter-spacing: -0.085em;
+
+    white-space: nowrap;
+
+    transform:
+        translateX(-0.025em);
+}
+
+.hero-bottom {
+    position: relative;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+.hero-mark {
+    font-size: 48px;
+
+    font-weight: 900;
+
+    letter-spacing: -8px;
+
+    line-height: 1;
+}
+
+.hero-mark span:first-child {
+    display: inline-block;
+
+    transform:
+        scaleX(0.8);
+}
+
+.scroll-label {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DIVISIONS
+========================================================= */
+
+.division {
+    min-height: 72vh;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        100px 1fr 100px;
+
+    padding:
+        32px 28px;
+
+    border-top:
+        1px solid currentColor;
+
+    overflow: hidden;
+}
+
+.division-number {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.division-content {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.division-label {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+.division h2 {
+    font-size: clamp(
+        95px,
+        17vw,
+        300px
+    );
+
+    line-height: 0.75;
+
+    letter-spacing: -0.075em;
+
+    font-weight: 900;
+
+    transition:
+        transform 0.5s cubic-bezier(.16,1,.3,1);
+}
+
+.division:hover h2 {
+    transform:
+        translateX(30px);
+}
+
+.division-meta {
+    display: flex;
+
+    gap: 35px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.division-arrow {
+    justify-self: end;
+
+    font-size: 40px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.division:hover .division-arrow {
+    transform:
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   DIVISION COLORS
+========================================================= */
+
+.division-dark {
+    background:
+        var(--black);
+
+    color:
+        var(--white);
+}
+
+.division-light {
+    background:
+        var(--white);
+
+    color:
+        var(--black);
+}
+
+.division-red {
+    background:
+        var(--red);
+
+    color:
+        var(--black);
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects {
+    background:
+        var(--white);
+
+    color:
+        var(--black);
+
+    padding:
+        28px;
+}
+
+.projects-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom:
+        80px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.project {
+    min-height: 220px;
+
+    display: grid;
+
+    grid-template-columns:
+        100px 1fr auto;
+
+    align-items: center;
+
+    border-top:
+        1px solid var(--black);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding 0.35s ease;
+}
+
+.project:last-child {
+    border-bottom:
+        1px solid var(--black);
+}
+
+.project:hover {
+    background:
+        var(--black);
+
+    color:
+        var(--white);
+
+    padding:
+        0 25px;
+}
+
+.project-number {
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.project h3 {
+    font-size: clamp(
+        45px,
+        8vw,
+        140px
+    );
+
+    font-weight: 900;
+
+    letter-spacing: -0.06em;
+
+    line-height: 0.9;
+}
+
+.project-arrow {
+    font-size: 36px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding:
+        28px;
+
+    background:
+        var(--black);
+
+    overflow: hidden;
+}
+
+.footer-word {
+    font-size: clamp(
+        130px,
+        23vw,
+        430px
+    );
+
+    font-weight: 900;
+
+    line-height: 0.72;
+
+    letter-spacing: -0.085em;
+
+    transform:
+        translateX(-0.025em);
+}
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top:
+        70px;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid var(--line);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   ENTRY ANIMATION
+========================================================= */
+
+.hero-word,
+.hero-top,
+.hero-bottom {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+
+body.loaded .hero-word,
+body.loaded .hero-top,
+body.loaded .hero-bottom {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+body.loaded .hero-word {
+    transform:
+        translateX(-0.025em)
+        translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 800px
+) {
+
+    .header {
+        grid-template-columns:
+            1fr auto;
+
+        padding:
+            0 18px;
+
+        height:
+            65px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hero {
+        padding:
+            90px 18px 18px;
+    }
+
+    .hero-word {
+        font-size:
+            27vw;
+    }
+
+    .division {
+        min-height:
+            55vh;
+
+        grid-template-columns:
+            45px 1fr 40px;
+
+        padding:
+            22px 18px;
+    }
+
+    .division h2 {
+        font-size:
+            20vw;
+    }
+
+    .division-meta {
+        flex-direction:
+            column;
+
+        gap:
+            5px;
+    }
+
+    .projects {
+        padding:
+            18px;
+    }
+
+    .project {
+        grid-template-columns:
+            45px 1fr 35px;
+
+        min-height:
+            150px;
+    }
+
+    .project h3 {
+        font-size:
+            11vw;
+    }
+
+    .footer {
+        min-height:
+            50vh;
+
+        padding:
+            18px;
+    }
+
+    .footer-word {
+        font-size:
+            27vw;
+    }
+
+}
+
+/* =========================================================
+   LOGOS REAIS
+========================================================= */
+
+.header-mark {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-mark img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+
+.hero-word {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.hero-word img {
+    display: block;
+    width: 79%;
+    max-height: 42vh;
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+.hero-mark {
+    display: flex;
+    align-items: center;
+}
+
+.hero-mark img {
+    display: block;
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+
+.footer-word {
+    width: 100%;
+}
+
+.footer-word img {
+    display: block;
+    width: 100%;
+    max-height: 42vh;
+    object-fit: contain;
+    object-position: left bottom;
+}
+
+/* =========================================================
+   ESPORTS PAGE
+========================================================= */
+
+.esports-page {
+    background: var(--black);
+}
+
+
+/* HERO */
+
+.esports-hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding:
+        110px 28px 28px;
+
+    overflow: hidden;
+
+    background:
+        var(--black);
+
+    color:
+        var(--white);
+}
+
+.esports-kicker,
+.esports-hero-bottom {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    z-index: 2;
+}
+
+.esports-title {
+    position: relative;
+
+    font-size: clamp(
+        110px,
+        21vw,
+        390px
+    );
+
+    line-height: 0.72;
+
+    letter-spacing: -0.075em;
+
+    font-weight: 900;
+
+    transform:
+        translateX(-0.025em);
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TEAMS
+========================================================= */
+
+.teams-section {
+    background:
+        var(--white);
+
+    color:
+        var(--black);
+
+    padding:
+        28px;
+}
+
+.teams-heading {
+    min-height: 130px;
+
+    display: flex;
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   TEAM CARD
+========================================================= */
+
+.team-card {
+    display: block;
+
+    min-height: 75vh;
+
+    padding:
+        28px 0;
+
+    border-top:
+        1px solid var(--black);
+
+    border-bottom:
+        1px solid var(--black);
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        padding 0.45s cubic-bezier(.16,1,.3,1);
+}
+
+.team-card:hover {
+    background:
+        var(--black);
+
+    color:
+        var(--white);
+
+    padding:
+        28px 35px;
+}
+
+
+.team-card-top,
+.team-card-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.team-card-main {
+    min-height: 58vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    align-items: center;
+}
+
+
+.team-name {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.team-small {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.team-name h2 {
+    font-size: clamp(
+        80px,
+        14vw,
+        250px
+    );
+
+    line-height: 0.73;
+
+    letter-spacing: -0.07em;
+
+    font-weight: 900;
+}
+
+
+.team-symbol {
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.team-symbol img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.5s cubic-bezier(.16,1,.3,1);
+}
+
+.team-card:hover
+.team-symbol img {
+    transform:
+        rotate(-8deg)
+        scale(1.12);
+}
+
+
+.team-open {
+    transition:
+        transform 0.3s ease;
+}
+
+.team-card:hover
+.team-open {
+    transform:
+        translateX(8px);
+}
+
+
+/* =========================================================
+   MOBILE — ESPORTS
+========================================================= */
+
+@media (
+    max-width: 800px
+) {
+
+    .esports-hero {
+        min-height:
+            75vh;
+
+        padding:
+            90px 18px 18px;
+    }
+
+    .esports-title {
+        font-size:
+            23vw;
+    }
+
+    .teams-section {
+        padding:
+            18px;
+    }
+
+    .teams-heading {
+        min-height:
+            90px;
+    }
+
+    .team-card {
+        min-height:
+            60vh;
+    }
+
+    .team-card-main {
+        min-height:
+            45vh;
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .team-name h2 {
+        font-size:
+            20vw;
+    }
+
+    .team-symbol {
+        display:
+            none;
+    }
+
+}
+
+/* =========================================================
+   FOOTER — TEAM SUAVE / COMPACT SYSTEM
+========================================================= */
+
+.footer.footer-compact {
+    min-height: 0;
+
+    display: block;
+
+    padding: 0 28px;
+
+    background: #0a0a0a;
+    color: #f0eee8;
+
+    overflow: visible;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.footer-main {
+    min-height: 190px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        2fr
+        auto;
+
+    align-items: start;
+
+    gap: 80px;
+
+    padding:
+        42px 0 38px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.footer-logo {
+    display: block;
+
+    width: fit-content;
+}
+
+.footer-logo img {
+    display: block;
+
+    width: 145px;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    border-radius: 0;
+    clip-path: none;
+
+    transform: none;
+    filter: none;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+.footer-nav {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(130px, 1fr));
+
+    gap: 60px;
+
+    max-width: 520px;
+}
+
+
+.footer-nav-column {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+}
+
+
+.footer-nav a {
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    color: #f0eee8;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+
+.footer-nav a:hover {
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   REDES SOCIAIS
+========================================================= */
+
+.footer-socials {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 18px;
+}
+
+
+.footer-socials a {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #f0eee8;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.footer-socials a:hover {
+    opacity: 0.55;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.footer-socials svg {
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.footer-socials svg .social-fill {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* =========================================================
+   BARRA INFERIOR
+========================================================= */
+
+.footer.footer-compact .footer-bottom {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0;
+
+    padding:
+        17px 0 19px;
+
+    border-top:
+        1px solid rgba(240, 238, 232, 0.18);
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #f0eee8;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .footer.footer-compact {
+        padding:
+            0 18px;
+    }
+
+
+    .footer-main {
+        min-height: 0;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 38px;
+
+        padding:
+            40px 0;
+    }
+
+
+    .footer-logo img {
+        width: 125px;
+    }
+
+
+    .footer-nav {
+        width: 100%;
+        max-width: none;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 30px;
+    }
+
+
+    .footer-socials {
+        justify-content: flex-start;
+    }
+
+
+    .footer.footer-compact .footer-bottom {
+        gap: 20px;
+
+        font-size: 9px;
+    }
+
+}
+
+/* =========================================================
+   FOOTER — 3 COLUNAS
+========================================================= */
+
+.footer-nav {
+    grid-template-columns:
+        repeat(3, minmax(120px, 1fr));
+
+    max-width: 760px;
+
+    gap: 70px;
+}
