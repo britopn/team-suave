@@ -211,7 +211,7 @@ async function loadPlayers() {
         } = await suaveSupabase
             .from("players")
             .select(
-                "id, name, number, position, photo_url, created_at"
+                "id, name, number, position, photo_url, created_at, career_games, career_goals, career_assists, career_motm, career_rating"
             )
             .order(
                 "number",
@@ -246,9 +246,20 @@ async function loadPlayers() {
                 image:
                     player.photo_url || null,
 
-                games: 0,
-                goals: 0,
-                assists: 0
+                games:
+                    player.career_games ?? 0,
+
+                goals:
+                    player.career_goals ?? 0,
+
+                assists:
+                    player.career_assists ?? 0,
+
+                motm:
+                    player.career_motm ?? 0,
+
+                rating:
+                    player.career_rating ?? 0
 
             }));
 
@@ -1722,19 +1733,14 @@ function renderPlayers() {
             `;
 
 
-            card.addEventListener(
-                "click",
-                () => {
+                card.addEventListener(
+                    "click",
+                    () => {
 
-                    console.log(
-                        `${player.name}
-Jogos: ${player.games}
-Golos: ${player.goals}
-Assistências: ${player.assists}`
-                    );
+                        openPlayerModal(player);
 
-                }
-            );
+                    }
+                );
 
 
             track.appendChild(
@@ -1746,6 +1752,154 @@ Assistências: ${player.assists}`
 
 }
 
+/* =========================================================
+   PERFIL DO JOGADOR
+========================================================= */
+
+function openPlayerModal(player) {
+
+    const modal =
+        document.getElementById("player-modal");
+
+    if (!modal) {
+        return;
+    }
+
+
+    const visual =
+        document.getElementById("player-modal-visual");
+
+    const number =
+        document.getElementById("player-modal-number");
+
+    const name =
+        document.getElementById("player-modal-name");
+
+    const position =
+        document.getElementById("player-modal-position");
+
+
+    number.textContent =
+        `#${String(player.number ?? 0).padStart(2, "0")}`;
+
+    name.textContent =
+        player.name || "JOGADOR";
+
+    position.textContent =
+        player.position || "—";
+
+
+    document.getElementById("player-stat-games").textContent =
+        player.games ?? 0;
+
+    document.getElementById("player-stat-goals").textContent =
+        player.goals ?? 0;
+
+    document.getElementById("player-stat-assists").textContent =
+        player.assists ?? 0;
+
+    document.getElementById("player-stat-motm").textContent =
+        player.motm ?? 0;
+
+
+    const rating =
+        Number(player.rating);
+
+    document.getElementById("player-stat-rating").textContent =
+        Number.isFinite(rating) && rating > 0
+            ? rating.toFixed(1)
+            : "—";
+
+
+    if (player.image) {
+
+        visual.innerHTML = `
+            <img
+                class="player-modal-image"
+                src="${player.image}"
+                alt="${player.name}"
+            >
+        `;
+
+    }
+
+    else {
+
+        visual.innerHTML = `
+            <div class="player-modal-placeholder">
+                ${(player.name || "?").charAt(0)}
+            </div>
+        `;
+
+    }
+
+
+    modal.classList.add("is-open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function closePlayerModal() {
+
+    const modal =
+        document.getElementById("player-modal");
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.remove("is-open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target.closest(
+                "[data-player-modal-close]"
+            )
+        ) {
+
+            closePlayerModal();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            closePlayerModal();
+
+        }
+
+    }
+);
 
 /* =========================================================
    9. CLASSIFICAÇÃO

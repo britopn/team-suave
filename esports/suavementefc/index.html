@@ -704,5 +704,91 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
 
+<!-- PERFIL DO JOGADOR -->
+
+<div
+    id="player-modal"
+    class="player-modal"
+    aria-hidden="true"
+>
+    <div
+        class="player-modal-backdrop"
+        data-player-modal-close
+    ></div>
+
+    <div class="player-modal-card">
+
+        <button
+            type="button"
+            class="player-modal-close"
+            data-player-modal-close
+            aria-label="Fechar perfil"
+        >
+            ×
+        </button>
+
+        <div
+            id="player-modal-visual"
+            class="player-modal-visual"
+        ></div>
+
+        <div class="player-modal-content">
+
+            <div class="player-modal-heading">
+
+                <span id="player-modal-number">
+                    #00
+                </span>
+
+                <div>
+                    <h2 id="player-modal-name">
+                        JOGADOR
+                    </h2>
+
+                    <p id="player-modal-position">
+                        POSIÇÃO
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="player-modal-stats">
+
+                <div class="player-modal-stat">
+                    <strong id="player-stat-games">0</strong>
+                    <span>JOGOS</span>
+                </div>
+
+                <div class="player-modal-stat">
+                    <strong id="player-stat-goals">0</strong>
+                    <span>GOLOS</span>
+                </div>
+
+                <div class="player-modal-stat">
+                    <strong id="player-stat-assists">0</strong>
+                    <span>ASSISTÊNCIAS</span>
+                </div>
+
+                <div class="player-modal-stat">
+                    <strong id="player-stat-motm">0</strong>
+                    <span>MOTM</span>
+                </div>
+
+                <div class="player-modal-stat">
+                    <strong id="player-stat-rating">—</strong>
+                    <span>RATING MÉDIO</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
